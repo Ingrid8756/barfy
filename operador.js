@@ -95,6 +95,8 @@ const baseProductos = [producto1, producto2, producto3, producto4, producto5];
 //     console.log (el.precio)
 // });
 
+let carrito = [];
+
 let shopContent = document.getElementById ("shopContent");
 
 baseProductos.forEach ((product) =>{
@@ -134,7 +136,48 @@ baseProductos.forEach ((product) =>{
 
     cardBody.append (agregar);
 
+    agregar.addEventListener ("click", () => {
+        carrito.push ({
+
+            product
+        }
+
+
+        )
+        console.log (carrito)
+    })
+
 } )  
+
+let verCarrito = document.getElementById ("carrito")
+
+verCarrito = addEventListener ("click", ()=>{
+    
+    const modalHeader = document.createElement ("div")
+    modalHeader.innerHTML = `
+    <h1>Carrito</h1>
+
+    `;
+
+verCarrito.append (modalHeader)
+
+    carrito.forEach ((product)=> {
+        let carritoContent = document.createElement ("div")
+        carritoContent.innerHTML = `
+        <h5>${product.nombre}</h5>
+        <p>${product.cantidad}</p>
+        <p>${product.precio}</p>
+
+        `;
+
+    verCarrito.append (carritoContent)
+
+    })
+
+
+
+})
+
 // agregar.addEventListener ("click", () => {
 
 // }
@@ -155,7 +198,7 @@ baseProductos.forEach ((product) =>{
 
 
 
-// // let carrito = [];
+
 
 // // let agregarProducto = prompt ("Ingresá el num de producto: 0- Dieta Completa Pollo / 1- Dieta Completa Vacuna / 2- Huesos Carnosos / 3- Higado Pollo / 4- Caldo Huesos")
 
